@@ -51,5 +51,10 @@ public class PostMetadata {
 	public void setTipo(String tipo) {
 		Tipo = tipo;
 	}
+
+	public int getIdPost() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

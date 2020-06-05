@@ -19,25 +19,24 @@ public class CategoriaRepository implements CategoriaRep {
 	public boolean save(Categoria categoria) {
 		try {
 			String sql = String.format(
-					"Insert into Categoria (Nombre,Descripcion,CategoriaSuperior)" 
+					"insert into Categoria (Nombre,Descripcion,CategoriaSuperior)"
 					+ "values('%s', '%s', '%d')", 
-					categoria.getNombre(), categoria.getDescripcion(), categoria.getCategoriaSuperior());
+					categoria.getNombre(), categoria.getDescripcion(), categoria.getCategoriaSuperiorior());
 			jdbcTemplate.execute(sql);
 			return true;
-		}catch(Exception e){
+		}catch(Exception e) {
 			return false;
 		}
 	}
 
 	@Override
-	public boolean upDate(Categoria categoria) {
-		if(categoria.getIdCategoria()!=0) {
-			String sql = String.format("update Categoria set Nombre='%s', Descripcion='%s', CategoriaSuperior='%d'"
-					+ " where ICategoria='%d' ", 
-			categoria.getNombre(), categoria.getDescripcion(), categoria.getCategoriaSuperior(),
-			categoria.getIdCategoria());
-			jdbcTemplate.execute(sql);		
-			
+	public boolean update(Categoria categoria) {
+		if(categoria.getIdCategoria() > 0) {
+			String sql = String.format("update Categoria set Nombre='%s', Descripcion='%s', CategoriaSuperior='%d' "
+					+ "where IdCategoria='%d'", 
+					categoria.getNombre(), categoria.getDescripcion(), categoria.getCategoriaSuperiorior(),
+					categoria.getIdCategoria());
+			jdbcTemplate.execute(sql);
 			return true;
 		}
 		return false;
@@ -48,4 +47,11 @@ public class CategoriaRepository implements CategoriaRep {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Categoria findById(int Id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -52,6 +52,11 @@ public class Categoria {
 	public void setCategoriaSuperior(long categoriaSuperior) {
 		CategoriaSuperior = categoriaSuperior;
 	}
+
+	public Object getCategoriaSuperiorior() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 

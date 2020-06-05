@@ -1,17 +1,16 @@
 package com.bytecode.startcms.model;
 
 public class Grupo {
-	
-	private long IdGrupo;
-	
+	private long Idgrupo;
+
 	private String Nombre;
 
-	public long getIdGrupo() {
-		return IdGrupo;
+	public long getIdgrupo() {
+		return Idgrupo;
 	}
 
-	public void setIdGrupo(long idGrupo) {
-		IdGrupo = idGrupo;
+	public void setIdgrupo(long idgrupo) {
+		Idgrupo = idgrupo;
 	}
 
 	public String getNombre() {
@@ -21,5 +20,4 @@ public class Grupo {
 	public void setNombre(String nombre) {
 		Nombre = nombre;
 	}
-	
 }
