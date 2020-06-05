@@ -62,4 +62,9 @@ public class Usuario {
 		IdGrupo = idGrupo;
 	}
 
+	public void setContrasena(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

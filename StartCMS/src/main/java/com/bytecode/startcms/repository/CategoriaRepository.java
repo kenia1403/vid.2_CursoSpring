@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.P
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.bytecode.startcms.mapper.CategoriaMapper;
 import com.bytecode.startcms.model.Categoria;
 
 @Repository
@@ -44,14 +45,16 @@ public class CategoriaRepository implements CategoriaRep {
 
 	@Override
 	public List<Categoria> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		
+		
+		return jdbcTemplate.query("select * form Categoria", new CategoriaMapper());
 	}
 
 	@Override
 	public Categoria findById(int Id) {
-		// TODO Auto-generated method stub
-		return null;
+		Object[] params = new Object[] {Id};
+		return jdbcTemplate.queryForObject("select * form Categoria where IdCategoria = ?", params, new CategoriaMapper());	
 	}
 
 }

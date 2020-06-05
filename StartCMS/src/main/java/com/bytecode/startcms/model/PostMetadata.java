@@ -56,5 +56,10 @@ public class PostMetadata {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	public void setIdPost(int int1) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
