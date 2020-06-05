@@ -29,7 +29,7 @@ public class ContenidoRepository implements ContenidoRep {
 			return false;
 		}
 	}
-
+	
 	@Override
 	public boolean update(Contenido object) {
 		if(object.getIdContenido()>0) {

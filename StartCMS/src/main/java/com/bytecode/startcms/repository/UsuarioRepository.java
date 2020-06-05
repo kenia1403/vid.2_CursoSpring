@@ -19,7 +19,7 @@ public class UsuarioRepository implements UsuarioRep {
 	@Override
 	public boolean save(Usuario object) {
 		try {
-			String sql = String.format("insert into Usuario (Nombre, Apellido, Contrasena, Correo, IdGrupo) values ('%s', '%s', '%s', '%s', '%d')", 
+			String sql = String.format("insert into Usuario (Nombre, Apellido, Contraseña, Correo, IdGrupo) values ('%s', '%s', '%s', '%s', '%d')", 
 					                  object.getNombre(), object.getApellido(), object.getContraseña(), object.getCorreo(), object.getIdGrupo());
 			jdbcTemplate.execute(sql);
 			return true;
@@ -31,7 +31,7 @@ public class UsuarioRepository implements UsuarioRep {
 	@Override
 	public boolean update(Usuario object) {
 		if(object.getIdUsuario()>0) {
-			String sql = String.format("update Usuario set Nombre='%s', Apellido='%s', Contrasena='%s', Correo='%s', IdGrupo='%d' where IdUsuario='%d'", 
+			String sql = String.format("update Usuario set Nombre='%s', Apellido='%s', Contraseña='%s', Correo='%s', IdGrupo='%d' where IdUsuario='%d'", 
 					                  object.getNombre(), object.getApellido(), object.getContraseña(), object.getCorreo(), object.getIdGrupo(), object.getIdUsuario());
 			jdbcTemplate.execute(sql);
 			return true;

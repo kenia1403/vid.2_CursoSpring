@@ -19,7 +19,7 @@ public class PostRepository implements PostRep {
 	@Override
 	public boolean save(Post object) {
 		try {
-			String sql = String.format("insert into Post (Titulo, Slug, Extracto, Idusuario, Categoria, ImagenDestacada, Tipo) values ('%s','%s', '%s', '%d', '%d', '%s', '%s')", 
+			String sql = String.format("insert into Post (Titulo, Slug, Extracto, IdUsuario, Categoria, ImagenDestacada, Tipo) values ('%s','%s', '%s', '%d', '%d', '%s', '%s')", 
 					      object.getTitulo(), object.getSlug(), object.getExtracto(), object.getIdUsuario(), object.getCategoria(), object.getImagenDestacada(), object.getTipo());
 			jdbcTemplate.execute(sql);
 			return true;
@@ -31,7 +31,7 @@ public class PostRepository implements PostRep {
 	@Override
 	public boolean update(Post object) {
 		if(object.getIdPost()>0) {
-			String sql = String.format("update Post set Titutlo='%s', Slug='%s', Extracto='%s', Idusuario='%d', Categoria='%d', ImagenDestacada='%s', Tipo='%s'", 
+			String sql = String.format("update Post set Titutlo='%s', Slug='%s', Extracto='%s', IdUsuario='%d', Categoria='%d', ImagenDestacada='%s', Tipo='%s'", 
 					object.getTitulo(), object.getSlug(), object.getExtracto(), object.getIdUsuario(), object.getCategoria(), object.getImagenDestacada(), object.getTipo());
 
 			jdbcTemplate.execute(sql);
