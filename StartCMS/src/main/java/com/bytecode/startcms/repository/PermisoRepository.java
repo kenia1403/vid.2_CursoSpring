@@ -28,7 +28,7 @@ public class PermisoRepository implements PermisoRep {
 	}
 
 	@Override
-	public boolean update(Permiso object) {
+	public boolean update1(Permiso object) {
 		if(object.getIdPermiso()>0) {
 			String sql = String.format("update Permiso set Nombre='%s' where IdPermiso='%d'", 
 					object.getNombre(), object.getIdPermiso());
@@ -46,6 +46,11 @@ public class PermisoRepository implements PermisoRep {
 
 	@Override
 	public Permiso findById(int Id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object update(Permiso permiso) {
 		// TODO Auto-generated method stub
 		return null;
 	}
