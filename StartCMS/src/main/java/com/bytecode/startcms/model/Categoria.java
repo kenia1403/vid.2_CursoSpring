@@ -57,6 +57,11 @@ public class Categoria {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public void setCategoriaSuperiorior(int i) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 
