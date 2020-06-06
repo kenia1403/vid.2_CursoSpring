@@ -34,14 +34,29 @@ public class CategoriaRepository implements CategoriaRep {
 	public boolean save(Categoria categoria) {
 		try {
 			String sql = String.format(
-					"insert into Categoria (Nombre,Descripcion,CategoriaSuperior), values('%s', '%s', '%d'), values('%s', '%s', %d)",
-					categoria.getNombre(), categoria.getDescripcion(), categoria.getCategoriaSuperiorior());
+					"insert into Categoria (Nombre,Descripcion,CategoriaSuperior), values('%s', '%s', '%d'), values('%s', '%s', %d)", categoria.getNombre(), categoria.getDescripcion(), categoria.getCategoriaSuperiorior());
 					jdbcTemplate.execute(sql);
 						return true;
 					}catch(Exception e) {
 						logger.error(e);
 					return false;
 		}
+	}
+	
+	@Override
+	public boolean update(Categoria categoria) {
+		if(categoria.getIdCategoria() > 0) {
+			String sql  = String.format("update Categoria set Nombre='%$s', Descripcion='%$s', CategoriaSuperior='%$d' "
+					+ "where IdCategoria='%$d'",
+					categoria.getNombre(), categoria.getDescripcion(), categoria.getCategoriaSuperior(), 
+					categoria.getIdCategoria());
+			jdbcTemplate.execute(sql);
+			
+			return true;
+		}
+		
+		return false;
+		
 	}
 		public Categoria findById(int Id) {
 		Object[] params = new Object[] {Id};
@@ -58,12 +73,6 @@ public class CategoriaRepository implements CategoriaRep {
 
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
-	}
-
-	@Override
-	public boolean update(Categoria object) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
